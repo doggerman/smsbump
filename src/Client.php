@@ -1,7 +1,7 @@
 <?php
 namespace Formaldehid\SmsBump;
 
-class Api {
+class Client {
 
     private $APIKey = '';
     private $from = '';
@@ -70,7 +70,7 @@ class Api {
         $argsCount = count($args);
         if (in_array($argsCount, array(1,6))) {
             $name = 'sendStatic_'.$argsCount;
-            call_user_func_array(array('Formaldehid\SmsBump\Api', $name), $args);
+            call_user_func_array(array('Formaldehid\SmsBump\Client', $name), $args);
         }
     }
 
