@@ -1,0 +1,7 @@
+{
+  "name": "formaldehid/smsbump",
+  "description": "SmsBump Api",
+  "require": {
+    "php": "^7.0"
+  }
+}
