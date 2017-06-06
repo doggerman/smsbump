@@ -1,7 +1,25 @@
 {
   "name": "formaldehid/smsbump",
-  "description": "SmsBump Api",
+  "description": "SmsBump Api for sending SMS messages.",
+  "keywords": [
+    "smsbump",
+    "sms",
+    "mobile"
+  ],
   "require": {
-    "php": "^7.0"
-  }
+    "php": ">=5.4.0"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Marko Šabec"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Formaldehid\\SmsBump\\": "src/"
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
 }
