@@ -7,8 +7,10 @@ class Client {
     private $from = '';
     private $to = '';
 
+    private static $host = "api.smsbump.com";
+
     public static function getAPIUrl($method, $APIKey) {
-        return "https://api.smsbump.com/{$method}/{$APIKey}.json";
+        return "https://".self::$host."/{$method}/{$APIKey}.json";
     }
 
     public static function sendBulk($APIKey, $from, $to, $message, $type, $callback = NULL) {
@@ -117,5 +119,23 @@ class Client {
 
     public function send_6($APIKey, $from, $to, $message, $type, $callback = NULL) {
         self::sendStatic($APIKey, $from, $to, $message, $type, $callback);
+    }
+
+    /**
+     * @return Balance|null
+     */
+    public function getBalance()
+    {
+        $json = file_get_contents("https://".self::$host."/balance/{$this->APIKey}.json");
+        try {
+            $data = json_decode($json, true);
+            if($data["status"] == "success"){
+                return new Balance($data["data"]["balance"], $data["data"]["currency"]);
+            }
+        } catch(\Exception $e){
+            //TODO
+        }
+
+        return null;
     }
 }

@@ -1,5 +1,5 @@
 <?php
-include realpath(__DIR__."/../src/Client.php");
+include realpath(__DIR__."/../vendor/autoload.php");
 
 use Formaldehid\SmsBump\Client;
 
